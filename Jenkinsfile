@@ -7,16 +7,18 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Build') {
+        stage('Build Docker Image') {
             steps {
-                echo 'Building...'
-                // Add your build commands here, e.g., sh 'mvn clean package'
+                echo 'Docker Build-----'
+                //Script para Generar la Imagen Docker nexus-server:5000/app:1.0
+                sh './build/build-image.sh'
             }
         }
-        stage('Test') {
+        stage('Push') {
             steps {
-                echo 'Testing...'
-                // Add your test commands here, e.g., sh 'mvn test'
+                echo 'Push Nexus Registry-----'
+                //Script para push registry Nexus "nexus-server:5000 
+                sh './push/push-image.sh'
             }
         }
         stage('Deploy') {
