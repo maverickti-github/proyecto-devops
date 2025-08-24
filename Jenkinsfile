@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    
+    environment {
+           NEXUS_REGISTRY = credentials('nexus-pass')
+    }
 
     stages {
         stage('Checkout') {

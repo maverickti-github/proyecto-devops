@@ -6,7 +6,7 @@
 #Variables
 DOCKERFILE=/home/jenkins/jenkins_home/workspace/jenkins-docker/Dockerfile
 REPOSITORY="nexus-server:5000"
-APP="app"
+APP="test"
 #TAG=$((BUILD_TAG-3))
 
 
@@ -15,7 +15,7 @@ echo "* Build Docker   *"
 echo "******************"
 
 
-docker build -f $DOCKERFILE -t $REPOSITORY/$APP:1.0 --no-cache .
+docker build -f $DOCKERFILE -t $REPOSITORY/$APP:1.0 .
 #Si falla la construcción
 if [ $? -ne 0 ]; then
   echo "Se presenta Error en el comando docker build...."
