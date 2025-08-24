@@ -5,13 +5,13 @@
 
 #Variables
 REPOSITORY="nexus-server:5000"
-APP="app"
+APP="test"
 
 
 #Docker Login Nexus Docker Registry
 echo "*** Loggin Nexus ***"
 #docker login -u $NEXUS_REGISTRY -p $NEXUS_REGISTRY $REPOSITORY
-docker login -u dockeradmin -p Ixtla.123 $REPOSITORY
+docker login -u dockeradmin -p $NEXUS_REGISTRY $REPOSITORY
 
 echo "******************"
 echo "* Pushing Image  *"
